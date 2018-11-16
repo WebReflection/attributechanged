@@ -1,0 +1,33 @@
+{
+  "name": "attributechanged",
+  "version": "0.0.0",
+  "description": "Enables `attributechanged` element's listener.",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "unpkg": "min.js",
+  "scripts": {
+    "build": "npm run cjs && npm run esm && npm run min && npm run size",
+    "cjs": "cp index.js cjs/ && echo 'module.exports = attributechanged;' >> cjs/index.js",
+    "esm": "cp index.js esm/ && echo 'export default attributechanged;' >> esm/index.js",
+    "min": "uglifyjs index.js --support-ie8 --comments=/^!/ -c -m -o min.js",
+    "size": "cat index.js | wc -c && cat min.js | wc -c && gzip -c9 min.js | wc -c && cat min.js | brotli | wc -c"
+  },
+  "author": "Andrea Giammarchi",
+  "license": "ISC",
+  "devDependencies": {
+    "uglify-js": "^2.8.29"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebReflection/attributechanged.git"
+  },
+  "keywords": [
+    "attributechanged",
+    "dom",
+    "events"
+  ],
+  "bugs": {
+    "url": "https://github.com/WebReflection/attributechanged/issues"
+  },
+  "homepage": "https://github.com/WebReflection/attributechanged#readme"
+}
