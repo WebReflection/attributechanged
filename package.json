@@ -1,6 +1,6 @@
 {
   "name": "attributechanged",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Enables `attributechanged` element's listener.",
   "main": "cjs/index.js",
   "module": "esm/index.js",
