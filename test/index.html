@@ -32,13 +32,16 @@
     var footer = document.querySelector('.footer');
     var divs = main.getElementsByTagName('div');
     var first = divs[0];
-    observe(first).addEventListener('attributechanged', write, false);
+    observe(first, ['test']).addEventListener('attributechanged', write, false);
     setTimeout(
       function () {
+        first.setAttribute('nope', Math.random());
         first.setAttribute('test', Math.random());
         setTimeout(
           function () {
+            first.setAttribute('nope', Math.random());
             first.setAttribute('test', 123);
+            first.removeAttribute('nope');
             first.removeAttribute('test');
           },
           250
@@ -53,7 +56,7 @@
         event.attributeName,
         event.oldValue == null ? 'null' : event.oldValue,
         event.newValue == null ? 'null' : event.newValue
-      ];
+      ].join(', ');
     }
 
     // brings in DOM Level 0 like event

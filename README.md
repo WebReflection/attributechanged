@@ -21,7 +21,9 @@ mainElement.addEventListener('attributechanged', (e) => {
 
 observe(subElement);
 observe(topElement);
-observe(anyElement);
+
+// optionally listen to a list of filters only
+observe(anyElement, ['only', 'some', 'attribute']);
 ```
 
 

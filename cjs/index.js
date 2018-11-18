@@ -1,12 +1,16 @@
 /*! (c) Andrea Giammarchi */
 function attributechanged(poly) {'use strict';
   var Event = poly.Event;
-  return function observe(node) {
+  return function observe(node, attributeFilter) {
+    var options = {attributes: true, attributeOldValue: true};
+    var filtered = attributeFilter instanceof Array && attributeFilter.length;
+    if (filtered)
+      options.attributeFilter = attributeFilter.slice(0);
     try {
-      (new MutationObserver(changes))
-        .observe(node, {attributes: true, attributeOldValue: true});
+      (new MutationObserver(changes)).observe(node, options);
     } catch(o_O) {
-      node.addEventListener('DOMAttrModified', attrModified, true);
+      options.handleEvent = filtered ? handleEvent : attrModified;
+      node.addEventListener('DOMAttrModified', options, true);
     }
     return node;
   };
@@ -25,6 +29,10 @@ function attributechanged(poly) {'use strict';
       record = records[i];
       dispatchEvent(record.target, record.attributeName, record.oldValue);
     }
+  }
+  function handleEvent(event) {
+    if (-1 < this.attributeFilter.indexOf(event.attrName))
+      attrModified(event);
   }
 }
 module.exports = attributechanged;
