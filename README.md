@@ -1,6 +1,6 @@
 # attributechanged
 
-[![Build Status](https://travis-ci.com/WebReflection/attributechanged.svg?branch=master)](https://travis-ci.com/WebReflection/attributechanged) ![WebReflection status](https://offline.report/status/webreflection.svg)
+[![Build Status](https://travis-ci.com/WebReflection/attributechanged.svg?branch=master)](https://travis-ci.com/WebReflection/attributechanged) [![Greenkeeper badge](https://badges.greenkeeper.io/WebReflection/attributechanged.svg)](https://greenkeeper.io/) ![WebReflection status](https://offline.report/status/webreflection.svg)
 
 
 In less than 0.3K, it enables `attributechanged` element's listener, an ideal companion for [disconnected](https://github.com/WebReflection/disconnected).
