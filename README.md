@@ -1,5 +1,8 @@
 # attributechanged
 
+[![Build Status](https://travis-ci.com/WebReflection/attributechanged.svg?branch=master)](https://travis-ci.com/WebReflection/attributechanged) ![WebReflection status](https://offline.report/status/webreflection.svg)
+
+
 In less than 0.3K, it enables `attributechanged` element's listener, an ideal companion for [disconnected](https://github.com/WebReflection/disconnected).
 
 The only optional dependencies it has is a constructable `Event` which must be passed along as configuration object, and a polyfill might be needed only for legacy browsers.
